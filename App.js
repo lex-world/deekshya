@@ -6,8 +6,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // @pages
-import LanguageSelection from "./Pages/UnAuthenticatedUserStack/LanguageSelection/LanguageSelection";
-import MobileNumberRegistration from "./Pages/UnAuthenticatedUserStack/MobileNumberRegistration/MobileNumberRegistration";
+import LanguageSelection from "./Pages/UnAuthenticatedUserStack/LanguageSelection";
+import MobileNumberRegistration from "./Pages/UnAuthenticatedUserStack/MobileNumberRegistration";
 
 const UnAuthenticatedUserStack = createNativeStackNavigator();
 export default function App() {

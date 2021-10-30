@@ -11,14 +11,24 @@ import {
   View,
 } from "react-native";
 
+// @packages
 import { Entypo } from "@expo/vector-icons";
 
-export default function LanguageSelection() {
+export default function LanguageSelection({ navigation }) {
+  /**
+   * * @dev current version has no logic applied to move between users
+   * TODO: Add Context API or Redux for State Management
+   * TODO: Store user language selection
+   */
+  const handleNextScreen = () => {
+    navigation.navigate("Phone Number Verification");
+  };
+
   return (
     <SafeAreaView style={styles.languageSelectionContainer}>
       <Image
         style={styles.languageSelectionContainer__bannerImage}
-        source={require("../../../assets/images/language.jpg")}
+        source={require("../../assets/images/language.jpg")}
       />
       {/* @section => title */}
       <Text style={styles.languageSelectionContainer__languageOptions__title}>
@@ -56,8 +66,11 @@ export default function LanguageSelection() {
         </TouchableOpacity>
       </View>
 
-      {/* @section => language selector next button */}
-      <TouchableOpacity style={styles.languageSelectionContainer__nextButton}>
+      {/*
+       * @section => language selector next button 
+       * TODO: Dispatch languge to store and move to next screen
+      */}
+      <TouchableOpacity onPress={handleNextScreen} style={styles.languageSelectionContainer__nextButton}>
         <Text style={styles.languageSelectionContainer__nextButton__text}>
           NEXT
         </Text>
