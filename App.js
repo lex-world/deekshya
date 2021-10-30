@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  Platform,
-  StyleSheet
-} from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 // @packages
 import { NavigationContainer } from "@react-navigation/native";
@@ -10,7 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // @pages
 import LanguageSelection from "./Pages/UnAuthenticatedUserStack/LanguageSelection/LanguageSelection";
-import { StatusBar } from "expo-status-bar";
+import MobileNumberRegistration from "./Pages/UnAuthenticatedUserStack/MobileNumberRegistration/MobileNumberRegistration";
 
 const UnAuthenticatedUserStack = createNativeStackNavigator();
 export default function App() {
@@ -22,9 +19,16 @@ export default function App() {
             headerShown: false,
           }}
         >
+          {/* @Screen => Language Selection */}
           <UnAuthenticatedUserStack.Screen
             name="Language Selection"
             component={LanguageSelection}
+          />
+          
+          {/* @Screen => Phone Number Verification */}
+          <UnAuthenticatedUserStack.Screen
+            name="Phone Number Verification"
+            component={MobileNumberRegistration}
           />
         </UnAuthenticatedUserStack.Navigator>
       </NavigationContainer>
