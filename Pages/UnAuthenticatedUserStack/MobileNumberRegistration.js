@@ -2,7 +2,6 @@ import React from "react";
 import {
   Dimensions,
   Image,
-  KeyboardAvoidingView,
   Platform,
   SafeAreaView,
   StatusBar,
@@ -15,67 +14,66 @@ import {
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export default function MobileNumberRegistration() {
+export default function MobileNumberRegistration({ navigation }) {
+  /**
+   * * @dev No event is required just place setPhoneNumber on input to handlechange
+   */
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+
+  /**
+   * * @dev phone number verfication 3rd party can be used
+   */
+  const handlePhoneNumberVerification = () => {};
+
   return (
     <SafeAreaView style={styles.mobileNumberRegistrationContainer}>
       {/* @section => banner image */}
       <Image
-        style={styles.mobileNumberRegistrationContainer__bannerImage}
+        style={styles.bannerImage}
         source={require("../../assets/images/phoneVerification.png")}
       />
 
       {/* @section => input field */}
-      <View style={styles.mobileNumberRegistrationContainer__mobileNumberInput}>
-        <Text
-          style={
-            styles.mobileNumberRegistrationContainer__mobileNumberInput__titleText
-          }
-        >
+      <View style={styles.mobileNumberInput}>
+        <Text style={styles.mobileNumberInput__titleText}>
           Enter your mobile number
         </Text>
-        <View
-          style={
-            styles.mobileNumberRegistrationContainer__mobileNumberInput__container
-          }
-        >
+        <View style={styles.mobileNumberInput__container}>
           <Image
-            style={
-              styles.mobileNumberRegistrationContainer__mobileNumberInput__container__imageThumb
-            }
+            style={styles.mobileNumberInput__container__imageThumb}
             source={require("../../assets/images/nepalFlag.png")}
           />
-          <Text
-            style={
-              styles.mobileNumberRegistrationContainer__mobileNumberInput__container__countryCode
-            }
-          >
+          <Text style={styles.mobileNumberInput__container__countryCode}>
             +977
           </Text>
 
           <TextInput
             placeholder="9801234567"
-            style={
-              styles.mobileNumberRegistrationContainer__mobileNumberInput__container__inputField
-            }
+            style={styles.mobileNumberInput__container__inputField}
+            value={phoneNumber}
+            onChangeText={setPhoneNumber}
           />
         </View>
       </View>
 
       {/* @section => note */}
-      <Text style={styles.mobileNumberRegistrationContainer__noteText}>
+      <Text style={styles.noteText}>
         * By continuing you may receive an SMS for verification. Message and
         data rates may apply.
       </Text>
 
       {/* @section => next Button */}
-      <TouchableOpacity style={styles.mobileNumberRegistrationContainer__nextBtn}>
-        <Text>NEXT</Text>
+      <TouchableOpacity style={styles.nextBtn}>
+        <Text style={styles.nextBtn__text}>NEXT</Text>
       </TouchableOpacity>
 
       {/* @section => back button */}
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={styles.goBackBtn}
+        onPress={() => navigation.navigate("Language Selection")}
+      >
         <FontAwesome5 name="chevron-left" size={20} color="black" />
-        <Text>Go Back</Text>
+        <Text style={styles.goBackBtn__text}>Go Back</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -93,57 +91,81 @@ const styles = StyleSheet.create({
   },
 
   // section => banner image
-  mobileNumberRegistrationContainer__bannerImage: {
+  bannerImage: {
     width: 320,
     height: 320,
   },
 
   // section => mobile number input container
-  mobileNumberRegistrationContainer__mobileNumberInput: {
+  mobileNumberInput: {
     borderBottomWidth: 1,
     borderBottomColor: "#000",
     width: Dimensions.get("window").width * 0.75,
     paddingBottom: 15,
-    marginBottom: 30
+    marginBottom: 30,
   },
-  mobileNumberRegistrationContainer__mobileNumberInput__titleText: {
+  mobileNumberInput__titleText: {
     fontSize: 18,
     fontWeight: "600",
-    marginTop: 10
+    marginTop: 10,
   },
-  mobileNumberRegistrationContainer__mobileNumberInput__container: {
+  mobileNumberInput__container: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
     marginTop: 30,
   },
-  mobileNumberRegistrationContainer__mobileNumberInput__container__imageThumb: {
+  mobileNumberInput__container__imageThumb: {
     height: 22,
     width: 18,
     resizeMode: "contain",
     marginLeft: 10,
     marginRight: 15,
   },
-  mobileNumberRegistrationContainer__mobileNumberInput__container__countryCode:
-    {
-      fontSize: 19,
-      fontWeight: "600",
-      marginRight: 15,
-    },
-    mobileNumberRegistrationContainer__mobileNumberInput__container__inputField: {
-        fontSize: 19
-    },
+  mobileNumberInput__container__countryCode: {
+    fontSize: 19,
+    fontWeight: "600",
+    marginRight: 15,
+  },
+  mobileNumberInput__container__inputField: {
+    fontSize: 19,
+  },
 
-    // section => note text
-    mobileNumberRegistrationContainer__noteText: {
-        fontSize: 14,
-        color: "#8c8c8c",
-        width: Dimensions.get('window').width * 0.75,
-    },
+  // section => note text
+  noteText: {
+    fontSize: 14,
+    color: "#8c8c8c",
+    width: Dimensions.get("window").width * 0.75,
+  },
 
-    // section => next button
-    mobileNumberRegistrationContainer__nextBtn: {
-        marginTop: 15
-    }
+  // section => next button
+  nextBtn: {
+    marginTop: 15,
+    backgroundColor: "#2ecc71",
+    width: Dimensions.get("window").width * 0.75,
+    alignItems: "center",
+    paddingVertical: 16,
+    borderRadius: 10,
+    marginBottom: 30,
+  },
+
+  nextBtn__text: {
+    color: "#fff",
+    fontWeight: "600",
+  },
+
+  // section => go back
+  goBackBtn: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "flex-end",
+    marginRight: Dimensions.get("window").width * 0.125,
+  },
+  goBackBtn__text: {
+    marginLeft: 10,
+    fontSize: 15,
+    fontWeight: "600",
+  },
 });

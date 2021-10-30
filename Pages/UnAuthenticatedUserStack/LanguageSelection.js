@@ -27,57 +27,39 @@ export default function LanguageSelection({ navigation }) {
   return (
     <SafeAreaView style={styles.languageSelectionContainer}>
       <Image
-        style={styles.languageSelectionContainer__bannerImage}
+        style={styles.bannerImage}
         source={require("../../assets/images/language.jpg")}
       />
       {/* @section => title */}
-      <Text style={styles.languageSelectionContainer__languageOptions__title}>
-        Select Language
-      </Text>
+      <Text style={styles.languageOptions__title}>Select Language</Text>
 
       {/* @section => language selector options */}
-      <View style={styles.languageSelectionContainer__languageOptions}>
+      <View style={styles.languageOptions}>
         <TouchableOpacity
           style={{
-            ...styles.languageSelectionContainer__languageOptions__option,
-            ...styles.languageSelectionContainer__languageOptions__english,
+            ...styles.languageOptions__option,
+            ...styles.languageOptions__english,
           }}
         >
-          <Text
-            style={
-              styles.languageSelectionContainer__languageOptions__option__text
-            }
-          >
-            English
-          </Text>
+          <Text style={styles.languageOptions__option__text}>English</Text>
           <Entypo name="circle" size={18} color="black" />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.languageSelectionContainer__languageOptions__option}
-        >
-          <Text
-            style={
-              styles.languageSelectionContainer__languageOptions__option__text
-            }
-          >
-            नेपाली
-          </Text>
+        <TouchableOpacity style={styles.languageOptions__option}>
+          <Text style={styles.languageOptions__option__text}>नेपाली</Text>
           <Entypo name="circle" size={18} color="black" />
         </TouchableOpacity>
       </View>
 
       {/*
-       * @section => language selector next button 
+       * @section => language selector next button
        * TODO: Dispatch languge to store and move to next screen
-      */}
-      <TouchableOpacity onPress={handleNextScreen} style={styles.languageSelectionContainer__nextButton}>
-        <Text style={styles.languageSelectionContainer__nextButton__text}>
-          NEXT
-        </Text>
+       */}
+      <TouchableOpacity onPress={handleNextScreen} style={styles.nextButton}>
+        <Text style={styles.nextButton__text}>NEXT</Text>
       </TouchableOpacity>
 
       {/* @section => note */}
-      <Text style={styles.languageSelectionContainer__noteText}>
+      <Text style={styles.noteText}>
         * You can change language later from settings.
       </Text>
     </SafeAreaView>
@@ -96,23 +78,23 @@ const styles = StyleSheet.create({
   },
 
   // section => banner image
-  languageSelectionContainer__bannerImage: {
+  bannerImage: {
     width: 312,
     height: 312,
   },
 
   // section => language selector options
-  languageSelectionContainer__languageOptions: {
+  languageOptions: {
     width: Dimensions.get("window").width * 0.75,
     borderWidth: 1,
     borderRadius: 10,
   },
-  languageSelectionContainer__languageOptions__title: {
+  languageOptions__title: {
     fontSize: 18,
     fontWeight: "600",
     marginBottom: 20,
   },
-  languageSelectionContainer__languageOptions__option: {
+  languageOptions__option: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -121,16 +103,16 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderColor: "#858585",
   },
-  languageSelectionContainer__languageOptions__option__text: {
+  languageOptions__option__text: {
     fontSize: 15,
   },
-  languageSelectionContainer__languageOptions__english: {
+  languageOptions__english: {
     borderBottomWidth: 1,
     borderColor: "#858585",
   },
 
   // section => language selector next button
-  languageSelectionContainer__nextButton: {
+  nextButton: {
     backgroundColor: "#2ECC71",
     width: Dimensions.get("window").width * 0.75,
     alignItems: "center",
@@ -138,14 +120,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 20,
   },
-  languageSelectionContainer__nextButton__text: {
+  nextButton__text: {
     color: "#fff",
     fontSize: 14,
     fontWeight: "600",
   },
 
   // @section => note text
-  languageSelectionContainer__noteText: {
+  noteText: {
     fontSize: 14,
     color: "#8c8c8c",
     marginTop: 20,
