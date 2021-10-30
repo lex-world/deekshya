@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  Platform,
+  StyleSheet
+} from "react-native";
 
+// @packages
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+// @pages
+import LanguageSelection from "./Pages/UnAuthenticatedUserStack/LanguageSelection/LanguageSelection";
+import { StatusBar } from "expo-status-bar";
+
+const UnAuthenticatedUserStack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <NavigationContainer>
+        <StatusBar barStyle="dark-content" />
+        <UnAuthenticatedUserStack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <UnAuthenticatedUserStack.Screen
+            name="Language Selection"
+            component={LanguageSelection}
+          />
+        </UnAuthenticatedUserStack.Navigator>
+      </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
