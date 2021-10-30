@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // @pages
 import LanguageSelection from "./Pages/UnAuthenticatedUserStack/LanguageSelection";
 import MobileNumberRegistration from "./Pages/UnAuthenticatedUserStack/MobileNumberRegistration";
+import PhoneVerification from "./Pages/UnAuthenticatedUserStack/PhoneVerification";
 
 const UnAuthenticatedUserStack = createNativeStackNavigator();
 export default function App() {
@@ -25,10 +26,16 @@ export default function App() {
             component={LanguageSelection}
           />
           
+          {/* @Screen => Phone Number Registration */}
+          <UnAuthenticatedUserStack.Screen
+            name="Phone Number Registration"
+            component={MobileNumberRegistration}
+          />
+          
           {/* @Screen => Phone Number Verification */}
           <UnAuthenticatedUserStack.Screen
             name="Phone Number Verification"
-            component={MobileNumberRegistration}
+            component={PhoneVerification}
           />
         </UnAuthenticatedUserStack.Navigator>
       </NavigationContainer>

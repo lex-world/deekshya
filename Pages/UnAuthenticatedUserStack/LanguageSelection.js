@@ -21,7 +21,7 @@ export default function LanguageSelection({ navigation }) {
    * TODO: Store user language selection
    */
   const handleNextScreen = () => {
-    navigation.navigate("Phone Number Verification");
+    navigation.navigate("Phone Number Registration");
   };
 
   return (

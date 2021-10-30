@@ -1,6 +1,5 @@
 ### Deekshya
 My Dream Project on helping people to get fresh blood donations in need with advanced feature ❤️ 🚀
-<hr/>
 
 #### Project Installation
 `git clone https://github.com/deekshyaaaaa/deekshya.git && cd deekshya && yarn`

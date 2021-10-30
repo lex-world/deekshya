@@ -12,18 +12,22 @@ import {
   View,
 } from "react-native";
 
+// @packages
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function MobileNumberRegistration({ navigation }) {
   /**
    * * @dev No event is required just place setPhoneNumber on input to handlechange
+   * TODO: Set number to store using dispatch will be used on next screen
    */
   const [phoneNumber, setPhoneNumber] = React.useState("");
 
   /**
    * * @dev phone number verfication 3rd party can be used
    */
-  const handlePhoneNumberVerification = () => {};
+  const handlePhoneNumberVerification = () => {
+    navigation.navigate('Phone Number Verification')
+  };
 
   return (
     <SafeAreaView style={styles.mobileNumberRegistrationContainer}>
@@ -63,7 +67,7 @@ export default function MobileNumberRegistration({ navigation }) {
       </Text>
 
       {/* @section => next Button */}
-      <TouchableOpacity style={styles.nextBtn}>
+      <TouchableOpacity style={styles.nextBtn} onPress={handlePhoneNumberVerification}>
         <Text style={styles.nextBtn__text}>NEXT</Text>
       </TouchableOpacity>
 
@@ -145,7 +149,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#2ecc71",
     width: Dimensions.get("window").width * 0.75,
     alignItems: "center",
-    paddingVertical: 16,
+    paddingVertical: 18,
     borderRadius: 10,
     marginBottom: 30,
   },
