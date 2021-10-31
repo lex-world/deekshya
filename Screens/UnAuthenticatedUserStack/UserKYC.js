@@ -15,6 +15,7 @@ import {
 // @packages
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Entypo } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function UserKYC() {
   const [date, setDate] = React.useState(new Date());
@@ -31,46 +32,67 @@ export default function UserKYC() {
         style={styles.userImage__preview}
         source={require("../../assets/images/deekshya.jpg")}
       />
+      {/* *
+       * TODO: This should give option for either upload or capture image
+       */}
       <TouchableOpacity>
         <Text style={styles.editImage__text}>Edit photo 📸</Text>
       </TouchableOpacity>
 
       {/* @section => kyc form */}
       <View style={styles.kycForm}>
-        <Text>Full Name</Text>
-        <TextInput placeholder="Deekshya Shahi" />
+        <Text style={styles.title}>Full Name</Text>
+        <TextInput placeholder="Deekshya Shahi" style={styles.inputContainer} />
 
-        <Text>Date of Birth</Text>
-        <DateTimePicker
-          mode="date"
-          value={date}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
+        <Text style={styles.title}>Date of Birth</Text>
+        <View
+          style={{
+            backgroundColor: "#efeff0",
+            borderRadius: 10,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+          }}
+        >
+          <DateTimePicker
+            style={{
+              height: 50,
+              width: Dimensions.get("window").width * 0.28,
+            }}
+            mode="date"
+            value={date}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+            themeVariant="light"
+          />
+          {/* <MaterialIcons name="date-range" size={24} color="black" /> */}
+        </View>
 
-        <Text>Gender</Text>
-        <View>
-          <TouchableOpacity>
+        <Text style={styles.title}>Gender</Text>
+        <View style={styles.genderContainer}>
+          <TouchableOpacity style={styles.genderContainer__genderItem}>
             <Entypo name="circle" size={24} color="black" />
-            <Text>Male</Text>
+            <Text style={styles.genderContainer__genderItem__text}>Male</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.genderContainer__genderItem}>
             <Entypo name="circle" size={24} color="black" />
-            <Text>Female</Text>
+            <Text style={styles.genderContainer__genderItem__text}>Female</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.genderContainer__genderItem}>
             <Entypo name="circle" size={24} color="black" />
-            <Text>Prefer not to say</Text>
+            <Text style={styles.genderContainer__genderItem__text}>
+              Prefer not to say
+            </Text>
           </TouchableOpacity>
         </View>
 
-        <Text>Blood Group</Text>
-        <TextInput placeholder="B Positive" />
+        <Text style={styles.title}>Blood Group</Text>
+        <TextInput placeholder="B Positive" style={styles.inputContainer} />
       </View>
 
-      <TouchableOpacity>
-        <Text>NEXT</Text>
+      <TouchableOpacity style={styles.nextBtn}>
+        <Text style={styles.nextBtn__text}>NEXT</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -85,6 +107,13 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  title: {
+    marginTop: 20,
+    fontSize: 15,
+    fontWeight: "600",
+    marginBottom: 10,
   },
 
   // @section => user image preview
@@ -107,5 +136,45 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
+  },
+
+  inputContainer: {
+    backgroundColor: "#efeff0",
+    fontSize: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
+    borderRadius: 10,
+  },
+
+  genderContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  genderContainer__genderItem: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  genderContainer__genderItem__text: {
+    fontSize: 14,
+    marginLeft: 10,
+  },
+
+  // section => nexct btn
+  nextBtn: {
+    backgroundColor: "#2ecc71",
+    width: Dimensions.get("window").width * 0.75,
+    alignItems: "center",
+    padding: 18,
+    borderRadius: 10,
+    marginTop: 25,
+  },
+  nextBtn__text: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "600",
   },
 });
