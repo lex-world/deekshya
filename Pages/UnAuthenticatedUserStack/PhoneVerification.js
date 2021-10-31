@@ -16,7 +16,7 @@ import {
 // @packages
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export default function PhoneVerification({navigation}) {
+export default function PhoneVerification({ navigation }) {
   /**
    * TODO: Code Verification should be done on error toast should be raised
    * TODO: Only one character should be in code field and automatically changed to next once character is entered
@@ -42,7 +42,10 @@ export default function PhoneVerification({navigation}) {
         <TextInput placeholder="0" style={styles.codeInput__fields__inputs} />
       </KeyboardAvoidingView>
 
-      <TouchableOpacity style={styles.nextBtn}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Greeting")}
+        style={styles.nextBtn}
+      >
         <Text style={styles.nextBtn__text}>NEXT</Text>
       </TouchableOpacity>
 
