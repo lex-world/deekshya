@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function Greeting() {
+export default function Greeting({navigation}) {
   return (
     <SafeAreaView style={styles.greeting__container}>
       <Image
@@ -21,7 +21,7 @@ export default function Greeting() {
       <Text style={styles.content__text}>
         We can’t wait to share good things.
       </Text>
-      <TouchableOpacity style={styles.nextBtn}>
+      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('User KYC')}>
         <Text style={styles.nextBtn__text}>NEXT</Text>
       </TouchableOpacity>
     </SafeAreaView>

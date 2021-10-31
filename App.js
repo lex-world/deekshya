@@ -6,12 +6,24 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // @pages
-import LanguageSelection from "./Pages/UnAuthenticatedUserStack/LanguageSelection";
-import MobileNumberRegistration from "./Pages/UnAuthenticatedUserStack/MobileNumberRegistration";
-import PhoneVerification from "./Pages/UnAuthenticatedUserStack/PhoneVerification";
-import Greeting from "./Pages/UnAuthenticatedUserStack/Greeting";
+import LanguageSelection from "./Screens/UnAuthenticatedUserStack/LanguageSelection";
+import MobileNumberRegistration from "./Screens/UnAuthenticatedUserStack/MobileNumberRegistration";
+import PhoneVerification from "./Screens/UnAuthenticatedUserStack/PhoneVerification";
+import Greeting from "./Screens/UnAuthenticatedUserStack/Greeting";
+import UserKYC from "./Screens/UnAuthenticatedUserStack/UserKYC";
 
+/**
+ * * @dev Unauthenticated User Stack
+ */
 const UnAuthenticatedUserStack = createNativeStackNavigator();
+
+/**
+ * * @dev Authenticated User Stack
+ * TODO: Apply stack on the basis if user is authenticated or not
+ * ! Uncomment AuthenticatedUserStack
+ */
+// const AuthenticatedUserStack = createNativeStackNavigator();
+
 export default function App() {
   return (
       <NavigationContainer>
@@ -43,6 +55,12 @@ export default function App() {
           <UnAuthenticatedUserStack.Screen
             name="Greeting"
             component={Greeting}
+          />
+          
+          {/* @Screen => User KYC */}
+          <UnAuthenticatedUserStack.Screen
+            name="User KYC"
+            component={UserKYC}
           />
         </UnAuthenticatedUserStack.Navigator>
       </NavigationContainer>
