@@ -74,7 +74,7 @@ export default function MobileNumberRegistration({ navigation }) {
       {/* @section => back button */}
       <TouchableOpacity
         style={styles.goBackBtn}
-        onPress={() => navigation.navigate("Language Selection")}
+        onPress={() => navigation.goBack()}
       >
         <FontAwesome5 name="chevron-left" size={20} color="black" />
         <Text style={styles.goBackBtn__text}>Go Back</Text>

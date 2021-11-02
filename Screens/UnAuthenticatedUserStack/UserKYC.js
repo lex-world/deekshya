@@ -15,7 +15,6 @@ import {
 // @packages
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Entypo } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
 
 export default function UserKYC() {
   const [date, setDate] = React.useState(new Date());
@@ -66,7 +65,6 @@ export default function UserKYC() {
             onChange={onChange}
             themeVariant="light"
           />
-          {/* <MaterialIcons name="date-range" size={24} color="black" /> */}
         </View>
 
         <Text style={styles.title}>Gender</Text>
