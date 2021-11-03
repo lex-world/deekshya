@@ -11,7 +11,7 @@ import MobileNumberRegistration from "./Screens/UnAuthenticatedUserStack/MobileN
 import PhoneVerification from "./Screens/UnAuthenticatedUserStack/PhoneVerification";
 import Greeting from "./Screens/UnAuthenticatedUserStack/Greeting";
 import UserKYC from "./Screens/UnAuthenticatedUserStack/UserKYC";
-// import Home from "./Screens/AuthenticaterdUserStack/Home";
+import Home from "./Screens/AuthenticaterdUserStack/Home";
 
 /**
  * * @dev Unauthenticated User Stack
@@ -20,6 +20,7 @@ const UserFlowStack = createNativeStackNavigator();
 
 /** @cont3xt api */
 import { useActiveSidebarDataLayerValue } from "./Context/User";
+import { View } from "react-native";
 
 export default function Layout() {
   const [{ authenticated }] = useActiveSidebarDataLayerValue();
@@ -34,7 +35,7 @@ export default function Layout() {
       >
         {/* @dev if user is not authenticated */}
         {!authenticated && (
-          <View>
+          <React.Fragment>
             {/* @Screen => Language Selection */}
             <UserFlowStack.Screen
               name="Language Selection"
@@ -58,11 +59,12 @@ export default function Layout() {
 
             {/* @Screen => User KYC */}
             <UserFlowStack.Screen name="User KYC" component={UserKYC} />
-          </View>
+          </React.Fragment>
         )}
+
+        {/* @dev if user is authenticated */}
+        <UserFlowStack.Screen name="Home" component={Home} />
       </UserFlowStack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({});

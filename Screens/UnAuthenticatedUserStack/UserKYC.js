@@ -16,7 +16,7 @@ import {
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Entypo } from "@expo/vector-icons";
 
-export default function UserKYC() {
+export default function UserKYC({navigation}) {
   const [date, setDate] = React.useState(new Date());
 
   const onChange = (selectedDate) => {
@@ -89,7 +89,7 @@ export default function UserKYC() {
         <TextInput placeholder="B Positive" style={styles.inputContainer} />
       </View>
 
-      <TouchableOpacity style={styles.nextBtn}>
+      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate("Home")}>
         <Text style={styles.nextBtn__text}>NEXT</Text>
       </TouchableOpacity>
     </SafeAreaView>
