@@ -1,10 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Feather, Fontisto, Foundation } from "@expo/vector-icons";
 
 export default function PostCard(item) {
-  const { username, created_at, user_image, content, media } = item.item;
+  const { username, created_at, user_image, content, media, user_full_name } =
+    item.item;
 
   return (
     <View style={styles.postCard__container}>
@@ -12,7 +13,7 @@ export default function PostCard(item) {
         <View style={styles.postCard__container__userDetails}>
           <Image source={{ uri: user_image }} style={styles.userImage} />
           <View>
-            <Text style={styles.username}>{username}</Text>
+            <Text style={styles.username}>{user_full_name}</Text>
             <Text style={styles.uploadDate}>{created_at}</Text>
           </View>
         </View>
@@ -26,22 +27,51 @@ export default function PostCard(item) {
       <Image source={{ uri: media }} style={styles.postMedia} />
 
       {/* @section => post content */}
-      <Text style={styles.postContent}>{content}</Text>
+      <Text style={styles.postContent}>
+        <Text style={{ fontWeight: "700" }}>{username}</Text> {content}
+      </Text>
+
+      <TouchableOpacity>
+        <Text style={{color: "#aaa", marginTop: 5}}>View all 4K comments</Text>
+      </TouchableOpacity>
+
+      {/* @section => post interaction */}
+      <View style={styles.postInteraction}>
+        <TouchableOpacity style={styles.donate__btn}>
+          <Foundation name="dollar" size={24} color="#f39c12" />
+          <Text style={{ color: "#f39c12", fontWeight: "600", fontSize: 16 }}>
+            {" "}
+            Donate
+          </Text>
+        </TouchableOpacity>
+
+        <View style={styles.postInteraction__interactions}>
+          <TouchableOpacity style={styles.postInteraction__button}>
+            <Ionicons name="md-heart-outline" size={24} color="#FF7675" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{ marginLeft: 20, ...styles.postInteraction__button }}
+          >
+            <Fontisto name="comment" size={22} color="#2ecc71" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{ marginLeft: 20, ...styles.postInteraction__button }}
+          >
+            <Feather name="share" size={24} color="#3498db" />
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   postCard__container: {
-    marginBottom: 33,
-    paddingHorizontal: 15,
     paddingVertical: 22,
-    borderRadius: 10,
-    backgroundColor: "#fff",
-    shadowColor: "#3a3a3a",
-    shadowOffset: { width: 2, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
+    borderTopWidth: 0.5,
+    borderTopColor: "#aaa",
   },
 
   postCard__container__topBar: {
@@ -76,7 +106,7 @@ const styles = StyleSheet.create({
   // @section => post media
   postMedia: {
     width: "100%",
-    height: 93,
+    height: 220,
     resizeMode: "cover",
     marginTop: 15,
     borderRadius: 10,
@@ -86,5 +116,33 @@ const styles = StyleSheet.create({
   postContent: {
     marginTop: 15,
     lineHeight: 20,
+    fontSize: 15,
+  },
+
+  postInteraction: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 5,
+  },
+
+  donate__btn: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  postInteraction__interactions: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  postInteraction__button: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
   },
 });

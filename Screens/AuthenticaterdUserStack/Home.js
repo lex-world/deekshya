@@ -14,6 +14,8 @@ import {
 import { Feather } from "@expo/vector-icons";
 import PostCard from "../../Components/PostCard";
 import Posts from '../../Helpers/Posts.json'
+import Notifications from "../../Components/Notifications";
+import Navbar from "../../Components/Navbar";
 
 export default function Home() {
   return (
@@ -34,6 +36,9 @@ export default function Home() {
           }
         </View>
       </ScrollView>
+
+      <Notifications/>
+      <Navbar/>
     </SafeAreaView>
   );
 }
@@ -58,12 +63,13 @@ const styles = StyleSheet.create({
   },
 
   topBar__text: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "700",
   },
 
   // @section => posts
   home__container__posts: {
     paddingHorizontal: Dimensions.get("window").width * 0.06,
+    marginBottom: 50
   },
 });
