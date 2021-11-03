@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 100,
     position: 'absolute',
-    bottom: 110,
+    bottom: 125,
     right: Dimensions.get('window').width * 0.05
   },
 });

@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
   // @section => posts
   home__container__posts: {
     paddingHorizontal: Dimensions.get("window").width * 0.06,
-    marginBottom: 50
+    marginBottom: 70
   },
 });
