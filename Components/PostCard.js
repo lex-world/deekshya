@@ -39,7 +39,7 @@ export default function PostCard(item) {
       <View style={styles.postInteraction}>
         <TouchableOpacity style={styles.donate__btn}>
           <Foundation name="dollar" size={24} color="#f39c12" />
-          <Text style={{ color: "#f39c12", fontWeight: "600", fontSize: 16 }}>
+          <Text style={{ color: "#f39c12", fontWeight: "600", fontSize: 15 }}>
             {" "}
             Donate
           </Text>
@@ -47,19 +47,19 @@ export default function PostCard(item) {
 
         <View style={styles.postInteraction__interactions}>
           <TouchableOpacity style={styles.postInteraction__button}>
-            <Ionicons name="md-heart-outline" size={24} color="#FF7675" />
+            <Ionicons name="md-heart-outline" size={22} color="#FF7675" />
           </TouchableOpacity>
 
           <TouchableOpacity
             style={{ marginLeft: 20, ...styles.postInteraction__button }}
           >
-            <Fontisto name="comment" size={22} color="#2ecc71" />
+            <Fontisto name="comment" size={20} color="#2ecc71" />
           </TouchableOpacity>
 
           <TouchableOpacity
             style={{ marginLeft: 20, ...styles.postInteraction__button }}
           >
-            <Feather name="share" size={24} color="#3498db" />
+            <Feather name="share" size={22} color="#3498db" />
           </TouchableOpacity>
         </View>
       </View>
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 5,
+    marginTop: 10,
   },
 
   donate__btn: {

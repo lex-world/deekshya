@@ -18,5 +18,5 @@ export default function UserDataLayer({ children }) {
   );
 }
 
-export const useActiveSidebarDataLayerValue = () =>
+export const useUserDataLayerValue = () =>
   React.useContext(UserDataLayerContext);

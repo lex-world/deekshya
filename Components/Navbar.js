@@ -7,33 +7,97 @@ import {
   View,
 } from "react-native";
 
+/** @packages */
 import { AntDesign, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function Navbar() {
+/** @cont3xt api */
+import { useActiveTabDataLayerValue } from "../Context/ActiveTabs/ActiveTab";
+
+export default function Navbar({ navigation }) {
+  const [{ active }, dispatch] = useActiveTabDataLayerValue();
+
+  /**
+   *
+   * @param {*} active => tab name
+   */
+  const handleTabDispatch = (active) => {
+    dispatch({
+      type: "SET_ACTIVE_TAB",
+      activeBar: active,
+    });
+
+    /**
+     * @dev after successful dispatch redirect page accordingly
+     */
+    // navigation.navigate('')
+  };
+
+  /**
+   * @dev on each tab inline styling is done using ternery operator
+   */
   return (
     <View style={styles.navbar__container}>
-      <TouchableOpacity style={styles.button__container}>
-        <AntDesign name="home" size={21} color="black" />
-        <Text>Home</Text>
+      <TouchableOpacity
+        style={styles.button__container}
+        onPress={() => handleTabDispatch("home")}
+      >
+        <AntDesign
+          name="home"
+          size={21}
+          color={active === "home" ? "#FF7675" : "#000"}
+        />
+        <Text style={{ color: active === "home" ? "#FF7675" : "#000" }}>
+          Home
+        </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button__container}>
-        <Feather name="map-pin" size={21} color="black" />
-        <Text>Explore</Text>
+      <TouchableOpacity
+        style={styles.button__container}
+        onPress={() => handleTabDispatch("explore")}
+      >
+        <Feather
+          name="map-pin"
+          size={21}
+          color={active === "explore" ? "#FF7675" : "#000"}
+        />
+        <Text style={{ color: active === "explore" ? "#FF7675" : "#000" }}>
+          Explore
+        </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button__container__middle}>
+      <TouchableOpacity
+        style={styles.button__container__middle}
+        onPress={() => handleTabDispatch("request")}
+      >
         <MaterialCommunityIcons name="blood-bag" size={23} color="#fff" />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button__container}>
-        <AntDesign name="search1" size={21} color="black" />
-        <Text>Search</Text>
+      <TouchableOpacity
+        style={styles.button__container}
+        onPress={() => handleTabDispatch("search")}
+      >
+        <AntDesign
+          name="search1"
+          size={21}
+          color={active === "search" ? "#FF7675" : "#000"}
+        />
+        <Text style={{ color: active === "search" ? "#FF7675" : "#000" }}>
+          Search
+        </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button__container}>
-        <AntDesign name="user" size={21} color="black" />
-        <Text>Profile</Text>
+      <TouchableOpacity
+        style={styles.button__container}
+        onPress={() => handleTabDispatch("profile")}
+      >
+        <AntDesign
+          name="user"
+          size={21}
+          color={active === "profile" ? "#FF7675" : "#000"}
+        />
+        <Text style={{ color: active === "profile" ? "#FF7675" : "#000" }}>
+          Profile
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -60,17 +124,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     paddingHorizontal: 10,
-    paddingBottom: 15
+    paddingBottom: 15,
   },
 
   button__container: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   button__container__middle: {
-      backgroundColor: "#FF7675",
-      padding: 20,
-      borderRadius: 100
-  }
+    backgroundColor: "#FF7675",
+    padding: 20,
+    borderRadius: 100,
+  },
 });

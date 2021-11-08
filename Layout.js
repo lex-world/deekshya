@@ -19,11 +19,10 @@ import Home from "./Screens/AuthenticaterdUserStack/Home";
 const UserFlowStack = createNativeStackNavigator();
 
 /** @cont3xt api */
-import { useActiveSidebarDataLayerValue } from "./Context/User";
-import { View } from "react-native";
+import { useUserDataLayerValue } from "./Context/User/User";
 
 export default function Layout() {
-  const [{ authenticated }] = useActiveSidebarDataLayerValue();
+  const [{ authenticated }] = useUserDataLayerValue();
   return (
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />

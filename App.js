@@ -1,7 +1,8 @@
 import React from "react";
 
-/** @context api */ 
-import UserDataLayer from "./Context/User";
+/** @context api */
+import UserDataLayer from "./Context/User/User";
+import ActiveTabDataLayer from "./Context/ActiveTabs/ActiveTab";
 
 /** @pages */
 import Layout from "./Layout";
@@ -9,7 +10,9 @@ import Layout from "./Layout";
 export default function App() {
   return (
     <UserDataLayer>
-      <Layout/>
+      <ActiveTabDataLayer>
+        <Layout />
+      </ActiveTabDataLayer>
     </UserDataLayer>
   );
 }
