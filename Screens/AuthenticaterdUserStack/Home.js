@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     minHeight: Dimensions.get("window").height,
     position: "relative",
+    // flex: 1
   },
 
   // @section => topbar

@@ -9,21 +9,28 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 
 // @packages
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { Entypo } from "@expo/vector-icons";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-export default function UserKYC({navigation}) {
-  const [date, setDate] = React.useState(new Date());
+export default function UserKYC({ navigation }) {
+  const [isDatePickerVisible, setDatePickerVisibility] = React.useState(false);
 
-  const onChange = (selectedDate) => {
-    const currentDate = selectedDate || date;
-    setDate(currentDate);
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
   };
 
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    console.warn("A date has been picked: ", date);
+    hideDatePicker();
+  };
   return (
     <SafeAreaView style={styles.UserKYC__container}>
       {/* @section => user image preview */}
@@ -53,17 +60,14 @@ export default function UserKYC({navigation}) {
             justifyContent: "space-between",
           }}
         >
-          <DateTimePicker
-            style={{
-              height: 50,
-              width: Dimensions.get("window").width * 0.28,
-            }}
+          <TouchableOpacity onPress={showDatePicker} style={styles.inputContainer}>
+            <Text>2003/07/05</Text>
+          </TouchableOpacity>
+          <DateTimePickerModal
+            isVisible={isDatePickerVisible}
             mode="date"
-            value={date}
-            is24Hour={true}
-            display="default"
-            onChange={onChange}
-            themeVariant="light"
+            onConfirm={handleConfirm}
+            onCancel={hideDatePicker}
           />
         </View>
 
@@ -89,7 +93,10 @@ export default function UserKYC({navigation}) {
         <TextInput placeholder="B Positive" style={styles.inputContainer} />
       </View>
 
-      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity
+        style={styles.nextBtn}
+        onPress={() => navigation.navigate("Home")}
+      >
         <Text style={styles.nextBtn__text}>NEXT</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -98,6 +105,7 @@ export default function UserKYC({navigation}) {
 
 const styles = StyleSheet.create({
   UserKYC__container: {
+    flex: 1,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     backgroundColor: "#fff",
     height: Dimensions.get("window").height,
@@ -130,7 +138,7 @@ const styles = StyleSheet.create({
 
   // @section => kyc form
   kycForm: {
-    width: Dimensions.get("window").width * 0.75,
+    width: Dimensions.get("window").width * 0.80,
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -138,7 +146,7 @@ const styles = StyleSheet.create({
 
   inputContainer: {
     backgroundColor: "#efeff0",
-    fontSize: 20,
+    fontSize: 15,
     paddingHorizontal: 10,
     paddingVertical: 15,
     borderRadius: 10,
@@ -158,15 +166,15 @@ const styles = StyleSheet.create({
 
   genderContainer__genderItem__text: {
     fontSize: 14,
-    marginLeft: 10,
+    marginLeft: 3,
   },
 
   // section => nexct btn
   nextBtn: {
     backgroundColor: "#2ecc71",
-    width: Dimensions.get("window").width * 0.75,
+    width: Dimensions.get("window").width * 0.80,
     alignItems: "center",
-    padding: 18,
+    padding: 15,
     borderRadius: 10,
     marginTop: 25,
   },

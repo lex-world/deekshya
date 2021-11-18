@@ -24,7 +24,7 @@ export default function PostCard(item) {
       </View>
 
       {/* section => post media */}
-      <Image source={{ uri: media }} style={styles.postMedia} />
+      {/* <Image source={{ uri: media }} style={styles.postMedia} /> */}
 
       {/* @section => post content */}
       <Text style={styles.postContent}>
@@ -32,7 +32,7 @@ export default function PostCard(item) {
       </Text>
 
       <TouchableOpacity>
-        <Text style={{color: "#aaa", marginTop: 5}}>View all 4K comments</Text>
+        <Text style={{color: "#aaa", marginTop: 10, fontSize: 15}}>View all 4K comments</Text>
       </TouchableOpacity>
 
       {/* @section => post interaction */}

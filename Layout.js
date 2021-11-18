@@ -12,6 +12,7 @@ import PhoneVerification from "./Screens/UnAuthenticatedUserStack/PhoneVerificat
 import Greeting from "./Screens/UnAuthenticatedUserStack/Greeting";
 import UserKYC from "./Screens/UnAuthenticatedUserStack/UserKYC";
 import Home from "./Screens/AuthenticaterdUserStack/Home";
+import FeedFocused from "./Screens/AuthenticaterdUserStack/FeedFocused";
 
 /**
  * * @dev Unauthenticated User Stack
@@ -36,33 +37,34 @@ export default function Layout() {
         {!authenticated && (
           <React.Fragment>
             {/* @Screen => Language Selection */}
-            <UserFlowStack.Screen
+            {/* <UserFlowStack.Screen
               name="Language Selection"
               component={LanguageSelection}
-            />
+            /> */}
 
             {/* @Screen => Phone Number Registration */}
-            <UserFlowStack.Screen
+            {/* <UserFlowStack.Screen
               name="Phone Number Registration"
               component={MobileNumberRegistration}
-            />
+            /> */}
 
             {/* @Screen => Phone Number Verification */}
-            <UserFlowStack.Screen
+            {/* <UserFlowStack.Screen
               name="Phone Number Verification"
               component={PhoneVerification}
-            />
+            /> */}
 
             {/* @Screen => Greeting */}
-            <UserFlowStack.Screen name="Greeting" component={Greeting} />
+            {/* <UserFlowStack.Screen name="Greeting" component={Greeting} /> */}
 
             {/* @Screen => User KYC */}
-            <UserFlowStack.Screen name="User KYC" component={UserKYC} />
+            {/* <UserFlowStack.Screen name="User KYC" component={UserKYC} /> */}
           </React.Fragment>
         )}
 
         {/* @dev if user is authenticated */}
-        <UserFlowStack.Screen name="Home" component={Home} />
+        {/* <UserFlowStack.Screen name="Home" component={Home} /> */}
+        <UserFlowStack.Screen name="Feed Focused" component={FeedFocused} />
       </UserFlowStack.Navigator>
     </NavigationContainer>
   );
