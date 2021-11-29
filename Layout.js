@@ -1,5 +1,4 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
 
 /**
  * @packages
@@ -10,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 /**
  * @pages
  */
+import LanguageSelector from "./Screens/LanguageSelector";
 
 /**
  * * @dev Unauthenticated User Stack
@@ -24,14 +24,13 @@ export default function Layout() {
 
   return (
     <NavigationContainer>
-      <StatusBar barStyle="dark-content" />
-      {/* <UserFlowStack.Navigator
+      <UserFlowStack.Navigator
         screenOptions={{
           headerShown: false,
         }}
-      > */}
-        {/* <UserFlowStack.Screen name="Home" component={Home} /> */}
-      {/* </UserFlowStack.Navigator> */}
+      >
+        <UserFlowStack.Screen name="Language Selection" component={LanguageSelector} />
+      </UserFlowStack.Navigator>
     </NavigationContainer>
   );
 }
