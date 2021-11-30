@@ -6,16 +6,16 @@ import React from "react";
 import { FontAwesome, AntDesign } from "@expo/vector-icons";
 
 import {
-    Dimensions,
-    Image,
-    Platform,
-    SafeAreaView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-  } from "react-native";
+  Dimensions,
+  Image,
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function LanguageSelector() {
   /**
@@ -82,11 +82,21 @@ export default function LanguageSelector() {
         </TouchableOpacity>
       </View>
 
+      <Text style={styles.noteText} numberOfLines={1} adjustsFontSizeToFit>
+        *You still can change language later.
+      </Text>
+
       {/** @section => Next Btn */}
       {language !== "" && (
         <TouchableOpacity style={styles.nextBtn}>
-          <Text style={styles.nextBtnText}>Next</Text>
-          <AntDesign name="arrowright" size={20} color="#fff" />
+          <Text
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            style={styles.nextBtnText}
+          >
+            Next
+          </Text>
+          <AntDesign name="arrowright" size={17} color="#fff" />
         </TouchableOpacity>
       )}
     </SafeAreaView>
@@ -99,11 +109,11 @@ const styles = StyleSheet.create({
   },
   bannerContainer: {
     position: "relative",
-    padding: 20
+    padding: 20,
   },
   banner: {
     position: "absolute",
-    height: Dimensions.get("window").height * 0.65,
+    height: Dimensions.get("window").height * 0.55,
     resizeMode: "cover",
     width: Dimensions.get("window").width * 0.7,
     alignSelf: "center",
@@ -112,7 +122,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 130,
   },
   title: {
-    marginTop: Dimensions.get("window").height * 0.51,
+    marginTop: Dimensions.get("window").height * 0.4,
     textAlign: "center",
     fontSize: 19,
     fontFamily: "Biryani-SemiBold",
@@ -140,6 +150,13 @@ const styles = StyleSheet.create({
     fontFamily: "Biryani-Regular",
     fontSize: 16,
   },
+  noteText: {
+      alignSelf: "center",
+      marginTop: 20,
+      fontSize: 16,
+      color: "#7a7a7a",
+    fontFamily: "Biryani-Regular",
+  },
   nextBtn: {
     marginHorizontal: Dimensions.get("window").width * 0.1,
     marginTop: 35,
@@ -150,11 +167,13 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     paddingHorizontal: 50,
+    alignItems: "center",
   },
   nextBtnText: {
     color: "#fff",
     fontFamily: "Biryani-Regular",
-    fontSize: 16,
+    fontSize: 15,
     marginRight: 8,
+    marginTop: 5
   },
 });
