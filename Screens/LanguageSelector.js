@@ -17,7 +17,7 @@ import {
   View,
 } from "react-native";
 
-export default function LanguageSelector() {
+export default function LanguageSelector({navigation}) {
   /**
    * @dev language state must be dispacthed in Context API or Redux
    */
@@ -88,7 +88,7 @@ export default function LanguageSelector() {
 
       {/** @section => Next Btn */}
       {language !== "" && (
-        <TouchableOpacity style={styles.nextBtn}>
+        <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('Phone Registration')}>
           <Text
             numberOfLines={1}
             adjustsFontSizeToFit
