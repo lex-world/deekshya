@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Dimensions,
   Image,
@@ -11,7 +12,7 @@ import {
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-export default function PhoneRegistration() {
+export default function PhoneRegistration({navigation}) {
   return (
     <KeyboardAwareScrollView style={{ flex: 1, backgroundColor: "#fff", }}>
       <View style={styles.container}>
@@ -43,7 +44,7 @@ export default function PhoneRegistration() {
           placeholder="+9779849092326"
         />
 
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("OTP Verification")}>
           <Text numberOfLines={1} adjustsFontSizeToFit style={styles.btnText}>
             Get OTP
           </Text>
@@ -109,18 +110,18 @@ const styles = StyleSheet.create({
     borderBottomColor: "#7a7a7a",
     borderBottomWidth: 0.5,
     width: "55%",
-    fontSize: 23,
+    fontSize: 21,
     paddingVertical: 10,
     paddingHorizontal: 10,
     textAlign: "center",
-    fontFamily: "Biryani-Bold",
+    fontFamily: "Biryani-SemiBold",
   },
   btn: {
     marginHorizontal: Dimensions.get("window").width * 0.1,
     marginTop: 25,
     backgroundColor: "#000",
     borderRadius: 50,
-    paddingVertical: 14,
+    paddingVertical: 12,
     alignSelf: "center",
     display: "flex",
     flexDirection: "row",
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontFamily: "Biryani-Regular",
     fontSize: 15,
-    marginTop: 5,
   },
   footer: {
     display: "flex",

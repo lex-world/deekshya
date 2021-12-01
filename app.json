@@ -22,9 +22,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.deeksya.deekshya",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

@@ -11,6 +11,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
  */
 import LanguageSelector from "./Screens/LanguageSelector";
 import PhoneRegistration from "./Screens/PhoneRegistration";
+import OTP from "./Screens/OTP";
 
 /**
  * * @dev Unauthenticated User Stack
@@ -32,6 +33,7 @@ export default function Layout() {
       >
         <UserFlowStack.Screen name="Language Selection" component={LanguageSelector} />
         <UserFlowStack.Screen name="Phone Registration" component={PhoneRegistration} />
+        <UserFlowStack.Screen name="OTP Verification" component={OTP} />
       </UserFlowStack.Navigator>
     </NavigationContainer>
   );

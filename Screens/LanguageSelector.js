@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     marginTop: 35,
     backgroundColor: "#000",
     borderRadius: 50,
-    paddingVertical: 18,
+    paddingVertical: 12,
     alignSelf: "center",
     display: "flex",
     flexDirection: "row",
@@ -174,6 +174,5 @@ const styles = StyleSheet.create({
     fontFamily: "Biryani-Regular",
     fontSize: 15,
     marginRight: 8,
-    marginTop: 5
   },
 });
