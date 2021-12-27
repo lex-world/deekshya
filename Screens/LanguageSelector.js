@@ -1,10 +1,9 @@
-import React from "react";
 
 /**
  * @packages
  */
+import React from "react";
 import { FontAwesome, AntDesign } from "@expo/vector-icons";
-
 import {
     Dimensions,
     Image,
@@ -17,7 +16,7 @@ import {
     View,
   } from "react-native";
 
-export default function LanguageSelector() {
+export default function LanguageSelector({navigation}) {
   /**
    * @dev language state must be dispacthed in Context API or Redux
    */
@@ -25,7 +24,7 @@ export default function LanguageSelector() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" hidden={true} />
+      <StatusBar barStyle="dark-content" animated={true} hidden={true} />
 
       {/** @section => Banner */}
       <View style={styles.bannerContainer}>
@@ -84,7 +83,7 @@ export default function LanguageSelector() {
 
       {/** @section => Next Btn */}
       {language !== "" && (
-        <TouchableOpacity style={styles.nextBtn}>
+        <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('Authentication')}>
           <Text style={styles.nextBtnText}>Next</Text>
           <AntDesign name="arrowright" size={20} color="#fff" />
         </TouchableOpacity>
@@ -96,6 +95,8 @@ export default function LanguageSelector() {
 const styles = StyleSheet.create({
   container: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    flex: 1,
+    backgroundColor: "#fff",
   },
   bannerContainer: {
     position: "relative",

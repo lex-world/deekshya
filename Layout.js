@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
  * @pages
  */
 import LanguageSelector from "./Screens/LanguageSelector";
+import Authentication from "./Screens/Authentication";
 
 /**
  * * @dev Unauthenticated User Stack
@@ -30,6 +31,7 @@ export default function Layout() {
         }}
       >
         <UserFlowStack.Screen name="Language Selection" component={LanguageSelector} />
+        <UserFlowStack.Screen name="Authentication" component={Authentication} />
       </UserFlowStack.Navigator>
     </NavigationContainer>
   );
