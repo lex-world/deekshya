@@ -14,6 +14,8 @@ import Authentication from "./Screens/Authentication/Authentication";
 import Login from "./Screens/Authentication/Login";
 import Register from "./Screens/Authentication/Register";
 import ForgotPassword from "./Screens/Authentication/ForgotPassword";
+import Welcome from "./Screens/Welcome";
+import GenderSelection from "./Screens/Registration/GenderSelection";
 
 /**
  * * @dev Unauthenticated User Stack
@@ -38,6 +40,8 @@ export default function Layout() {
         <UserFlowStack.Screen name="Login" component={Login} />
         <UserFlowStack.Screen name="Forgot Password" component={ForgotPassword} />
         <UserFlowStack.Screen name="Register" component={Register} />
+        <UserFlowStack.Screen name="Register Success" component={Welcome} />
+        <UserFlowStack.Screen name="Gender Selection" component={GenderSelection} />
       </UserFlowStack.Navigator>
     </NavigationContainer>
   );

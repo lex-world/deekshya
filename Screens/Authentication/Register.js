@@ -52,7 +52,7 @@ export default function Register({navigation}) {
             />
     
             {/** @dev login button */}
-            <TouchableOpacity style={styles.registerBtn}>
+            <TouchableOpacity style={styles.registerBtn} onPress={() => navigation.navigate("Register Success")}>
               <Text style={styles.registerBtnText}>Create Account</Text>
             </TouchableOpacity>
     
