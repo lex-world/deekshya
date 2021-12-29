@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
-export default function NameRegistration() {
+export default function NameRegistration({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" animated={true} hidden={false} />
@@ -44,7 +44,7 @@ export default function NameRegistration() {
       </View>
 
       <View>
-        <TouchableOpacity style={styles.continueBtn}>
+        <TouchableOpacity style={styles.continueBtn} onPress={() => navigation.navigate("Home")}>
           <Text style={styles.continueBtnText}>Continue</Text>
         </TouchableOpacity>
         <Text style={styles.privacyText}>

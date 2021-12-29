@@ -1,0 +1,24 @@
+[
+    {
+        "type": "appointment",
+        "title": "Appointment with Dr. Deekshya for Eye Test",
+        "date": "5th July, 2022"
+    },
+    {
+        "type": "medicine",
+        "title": "Take Abacavir - the blue one",
+        "date": "Everyday",
+        "endDate": "5th July, 2033",
+        "time": ["9am", "3pm", "9pm"]
+    },
+    {
+        "type": "donation",
+        "title": "Donate blood on campaign",
+        "date": "26th July, 2022"
+    },
+    {
+        "type": "purchase",
+        "title": "Tuberculosis Medicine will be finished",
+        "date": "26th July, 2022"
+    }
+]
