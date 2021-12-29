@@ -13,7 +13,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 
 /** @dev main component */
-export default function GenderSelection() {
+export default function GenderSelection({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" animated={true} hidden={false} />
@@ -51,11 +51,11 @@ export default function GenderSelection() {
         To give you a customize experience{"\n"}we need to know your gender
       </Text>
 
-      <TouchableOpacity style={styles.continueBtn}>
+      <TouchableOpacity style={styles.continueBtn} onPress={() => navigation.navigate("Name Registration")}>
         <Text style={styles.continueBtnText}>Continue</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.preferNotToChoose}>
+      <TouchableOpacity style={styles.preferNotToChoose} onPress={() => navigation.navigate("Name Registration")}>
         <Text style={styles.notToChooseText}>Prefer not to choose</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#fff",
     fontFamily: "Biryani-Bold",
+    fontSize: 15
   },
   preferNotToChoose: {
     alignSelf: "center",
