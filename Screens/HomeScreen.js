@@ -51,7 +51,7 @@ export default function HomeScreen() {
 
       {/** @section Reminders */}
       <View style={styles.reminders}>
-        <Text style={styles.reminderTitle}>Reminders</Text>
+        {/* <Text style={styles.reminderTitle}>Reminders</Text> */}
         <View style={styles.reminderItems}>
           {Reminders.map((reminder, index) => {
             return <ReminderCard reminder={reminder} key={index} />;
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   bannerImage: {
     width: Dimensions.get("window").width * 0.9,
     alignSelf: "center",
-    height: Dimensions.get("window").height * 0.15,
+    height: Dimensions.get("window").height * 0.25,
     resizeMode: "cover",
     borderRadius: 10,
     marginVertical: 20
@@ -108,17 +108,12 @@ const styles = StyleSheet.create({
   reminders: {
     alignSelf: "center",
   },
-  reminderTitle: {
-    fontFamily: "Biryani-Bold",
-    fontSize: 18,
-    marginBottom: 10,
-  },
   remindersAllRemindersBtn: {
     backgroundColor: "#000",
     width: Dimensions.get("window").width * 0.85,
     borderRadius: 10,
     paddingVertical: 17,
-    marginTop: 15,
+    marginTop: 5,
     alignSelf: "center",
   },
   remindersAllRemindersText: {

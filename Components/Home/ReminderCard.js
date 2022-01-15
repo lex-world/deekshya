@@ -34,17 +34,16 @@ const styles = StyleSheet.create({
   reminderCard: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20,
+    alignItems: "flex-start",
+    marginBottom: 8,
     backgroundColor: "#fff",
     maxWidth: Dimensions.get("window").width * 0.85,
     width: Dimensions.get("window").width * 0.85,
     paddingVertical: 10,
-    paddingHorizontal: 15,
     borderRadius: 10
   },
   reminderType: {
-    backgroundColor: "#74b9ff",
+    backgroundColor: "#a29bfe",
     width: 47,
     height: 47,
     paddingTop: 5,
@@ -58,6 +57,8 @@ const styles = StyleSheet.create({
   titleText: {
     fontFamily: "Biryani-SemiBold",
     maxWidth: Dimensions.get("window").width * 0.55,
+    fontSize: 16,
+    lineHeight: 24,
   },
   date: {
     fontFamily: "Biryani-Regular",
