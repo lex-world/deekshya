@@ -21,6 +21,7 @@
     "react-native-modal-datetime-picker": "^13.0.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.9.0",
+    "react-native-view-slider": "^1.1.1",
     "react-native-web": "0.17.1",
     "yarn": "^1.22.17"
   },

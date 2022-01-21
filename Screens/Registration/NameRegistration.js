@@ -29,7 +29,7 @@ export default function NameRegistration({navigation}) {
 
         <Text style={styles.pagination}>STEP 2/2</Text>
 
-        <Text style={styles.title}>What's your Good Name?</Text>
+        <Text style={styles.title}>What's your Full name?</Text>
 
         <TextInput
           placeholderTextColor="#7a7a7a"

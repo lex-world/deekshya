@@ -26,27 +26,45 @@ const UserFlowStack = createNativeStackNavigator();
 
 /** @cont3xt api */
 // import { useUserDataLayerValue } from "./Context/User/User";
+import HomeScreenContextData from "./Context/HomeScreenContext";
 
 export default function Layout() {
   // const [{ authenticated }] = useUserDataLayerValue();
 
   return (
-    <NavigationContainer>
-      <UserFlowStack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <UserFlowStack.Screen name="Language Selection" component={LanguageSelector} />
-        <UserFlowStack.Screen name="Authentication" component={Authentication} />
-        <UserFlowStack.Screen name="Login" component={Login} />
-        <UserFlowStack.Screen name="Forgot Password" component={ForgotPassword} />
-        <UserFlowStack.Screen name="Register" component={Register} />
-        <UserFlowStack.Screen name="Register Success" component={Welcome} />
-        <UserFlowStack.Screen name="Gender Selection" component={GenderSelection} />
-        <UserFlowStack.Screen name="Name Registration" component={NameRegistration} />
-        <UserFlowStack.Screen name="Home" component={HomeScreen} />
-      </UserFlowStack.Navigator>
-    </NavigationContainer>
+    <HomeScreenContextData>
+      <NavigationContainer>
+        <UserFlowStack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <UserFlowStack.Screen
+            name="Language Selection"
+            component={LanguageSelector}
+          />
+          <UserFlowStack.Screen
+            name="Authentication"
+            component={Authentication}
+          />
+          <UserFlowStack.Screen name="Login" component={Login} />
+          <UserFlowStack.Screen
+            name="Forgot Password"
+            component={ForgotPassword}
+          />
+          <UserFlowStack.Screen name="Register" component={Register} />
+          <UserFlowStack.Screen name="Register Success" component={Welcome} />
+          <UserFlowStack.Screen
+            name="Gender Selection"
+            component={GenderSelection}
+          />
+          <UserFlowStack.Screen
+            name="Name Registration"
+            component={NameRegistration}
+          />
+          <UserFlowStack.Screen name="Home" component={HomeScreen} />
+        </UserFlowStack.Navigator>
+      </NavigationContainer>
+    </HomeScreenContextData>
   );
 }

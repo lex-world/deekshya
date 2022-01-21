@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontFamily: "Biryani-SemiBold",
     maxWidth: Dimensions.get("window").width * 0.55,
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 24,
   },
   date: {
